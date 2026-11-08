@@ -9,6 +9,7 @@ pipeline{
         stage('build'){
             steps{
                 sh "docker build -t nomandevops1/two-tier-flask-app ."
+                sh 'docker push nomandevops1/two-tier-flask-app'
             }
         }
         stage('test'){
