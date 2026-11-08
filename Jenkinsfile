@@ -36,4 +36,17 @@ pipeline{
             }
         }
     }
+    post {
+    success {
+        mail to: 'nomanahmaddevops1@gmail.com',
+             subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Your application pipeline completed successfully."
+    }
+
+    failure {
+        mail to: 'nomanahmaddevops1@gmail.com',
+             subject: "FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Your Jenkins pipeline failed. Please check the console output."
+    }
+}
 }
